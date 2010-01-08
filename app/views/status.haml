@@ -1,0 +1,13 @@
+!!!
+%html
+    %head
+        %title #{@command} - #{@message}
+    %body
+        %h1 #{@command} - <span id="status">#{@message}</span>
+        %table
+            %tr
+                %td User Name:
+                %td #{params[:username]}
+            %tr
+                %td Password:
+                %td #{params[:password]}

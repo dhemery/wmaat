@@ -1,0 +1,19 @@
+!!!
+%html
+    %head
+        %title #{@command}
+    %body
+        %h1 #{@command}
+        %form{:method => 'post', :action => "#{@action}"}
+            %table
+                %tr
+                    %td
+                        %label User Name:
+                    %td
+                        %input{:name => 'username', :maxlength => 25}
+                %tr
+                    %td
+                        %label Password:
+                    %td
+                        %input{:name => 'password', :maxlength => 25}
+            %button{:type => 'submit', :name => 'command'} #{@command}
