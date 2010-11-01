@@ -24,9 +24,8 @@ desc "Run unit tests."
 RSpec::Core::RakeTask.new(:ut) do |spec|
     spec.pattern = ["unit"]
     spec.rspec_opts = [
-        "-c",
-        "-f h:#{$report_dir}/spec.html",
-        "-f specdoc",
+        "--color",
+        "--format documentation",
         ]
 end
 
