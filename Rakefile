@@ -1,5 +1,5 @@
 require 'rake/clean'
-require 'spec/rake/spectask'
+require 'rspec/core/rake_task'
 
 $accounts_dir = 'accounts'
 $report_dir = 'reports'
@@ -21,9 +21,9 @@ task :default => [:at]
 
 task :ut => [:temp_dirs]
 desc "Run unit tests."
-Spec::Rake::SpecTask.new(:ut) do |t|
-    t.spec_files = ["unit"]
-    t.spec_opts = [
+RSpec::Core::RakeTask.new(:ut) do |spec|
+    spec.pattern = ["unit"]
+    spec.rspec_opts = [
         "-c",
         "-f h:#{$report_dir}/spec.html",
         "-f specdoc",
