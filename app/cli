@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 $current_dirname = File.dirname(__FILE__)
 $: << $current_dirname
 
@@ -27,6 +29,6 @@ class CommandLineRunner
     end
 end
 
-account_file_path = $current_dirname + "/../accounts/accounts.txt"
+account_file_path = "#{$current_dirname}/../accounts/accounts.txt"
 runner = CommandLineRunner.new account_file_path
 runner.execute ARGV
