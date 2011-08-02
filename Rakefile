@@ -1,17 +1,21 @@
 require 'rake/clean'
 require 'rspec/core/rake_task'
 
+$atest_dir = 'atest'
 $accounts_dir = 'accounts'
 $report_dir = 'reports'
 
-desc "Run all tests."
-task :all => [:ut, :at]
-task :temp_dirs => [$accounts_dir, $report_dir]
-
 directory $accounts_dir
 directory $report_dir
+directory $atest_dir
 
-CLEAN.include $accounts_dir, $report_dir
+$temp_dirs = $atest_dir, $accounts_dir, $report_dir
+CLEAN.include $temp_dirs
+
+desc "Run all tests."
+task :all => [:ut, :at]
+task :temp_dirs => $temp_dirs
+
 
 desc "Run acceptance tests."
 task :at => [:temp_dirs] do
@@ -40,3 +44,49 @@ namespace "server" do
     end
 end
 
+$example_dirs = [
+                    "0-ugly-tests",
+                    "1-hide-incidentals",
+                    "2-remove-duplication",
+                    "3-name-important-values",
+                    "4-name-key-concepts",
+                    "5-organize-code",
+                    "6-change-technology"
+                ]
+
+namespace "init" do
+    desc "Ugly tests (start here)"
+    task :ugly => [:clean] do
+        sh "cp -r examples/0-ugly-tests #{$atest_dir}"
+    end
+
+    desc "Step 1: Hide incidentals"
+    task :incidentals => [:clean] do
+        sh "cp -r examples/1-hide-incidentals #{$atest_dir}"
+    end
+
+    desc "Step 2: Remove duplication"
+    task :duplication => [:clean] do
+        sh "cp -r examples/2-remove-duplication #{$atest_dir}"
+    end
+
+    desc "Step 2: Name important values"
+    task :values => [:clean] do
+        sh "cp -r examples/3-name-important-values #{$atest_dir}"
+    end
+
+    desc "Step 4: Name key concepts"
+    task :concepts => [:clean] do
+        sh "cp -r examples/4-name-key-concepts #{$atest_dir}"
+    end
+
+    desc "Step 5: Organize the code"
+    task :organize => [:clean] do
+        sh "cp -r examples/5-organize-code #{$atest_dir}"
+    end
+
+    desc "Step 6: Change to a new technology"
+    task :web => [:clean] do
+        sh "cp -r examples/6-change-technology #{$atest_dir}"
+    end
+end
