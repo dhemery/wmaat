@@ -1,9 +1,5 @@
-*** Settings ***
-Library         SeleniumLibrary
-Suite Setup     Start Selenium Session
-Suite TearDown  End Selenium Session
-
 *** Keywords ***
+
 Start Selenium Session
     Start Selenium Server
     Open Browser  http://localhost:4567
@@ -13,3 +9,11 @@ Start Selenium Session
 End Selenium Session
     Close Browser
     Stop Selenium Server
+
+
+
+
+*** Settings ***
+Library         SeleniumLibrary
+Suite Setup     Start Selenium Session
+Suite TearDown  End Selenium Session

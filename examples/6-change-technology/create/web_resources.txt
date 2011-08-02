@@ -1,12 +1,3 @@
-*** Settings ***
-Library         SeleniumLibrary
-
-*** Variables ***
-
-${HOME_PAGE}    http://localhost:4567
-${CREATE_PAGE}  ${HOME_PAGE}/create
-${DELAY}        0.5
-
 *** Keywords ***
 
 Create Account ${username} ${password}
@@ -25,3 +16,18 @@ Accepts Password ${valid_password}
 Rejects Password ${invalid_password}
     Create Account arbitraryUserName ${invalid_password}
     Status Should Be Invalid Password
+
+
+
+
+*** Settings ***
+Library         SeleniumLibrary
+
+
+
+
+*** Variables ***
+
+${HOME_PAGE}    http://localhost:4567
+${CREATE_PAGE}  ${HOME_PAGE}/create
+${DELAY}        0.5

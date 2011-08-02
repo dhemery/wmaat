@@ -1,15 +1,8 @@
 ** Keywords **
+
 Create Account ${username} ${password}
-    ${status}=  Run  app/cli create ${username} ${password}
+    ${status}=  Run  ruby app/cli create ${username} ${password}
     Set Test Variable   ${status}
 
 Status Should Be ${expected_status}
     Should Be Equal  ${status}  ${expected_status}
-
-Accepts Password ${valid_password}
-    Create Account arbitraryUserName ${valid_password}
-    Status Should Be Account Created
-
-Rejects Password ${invalid_password}
-    Create Account arbitraryUserName ${invalid_password}
-    Status Should Be Invalid Password
