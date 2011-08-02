@@ -44,16 +44,7 @@ namespace "server" do
     end
 end
 
-$example_dirs = [
-                    "0-ugly-tests",
-                    "1-hide-incidentals",
-                    "2-remove-duplication",
-                    "3-name-important-values",
-                    "4-name-key-concepts",
-                    "5-organize-code",
-                    "6-change-technology"
-                ]
-
+desc "These tasks copy example tests into the atest dir, ready to run"
 namespace "init" do
     desc "Ugly tests (start here)"
     task :ugly => [:clean] do
@@ -70,7 +61,7 @@ namespace "init" do
         sh "cp -r examples/2-remove-duplication #{$atest_dir}"
     end
 
-    desc "Step 2: Name important values"
+    desc "Step 3: Name important values"
     task :values => [:clean] do
         sh "cp -r examples/3-name-important-values #{$atest_dir}"
     end
