@@ -1,7 +1,7 @@
 ** Keywords **
 
 Create Account ${username} ${password}
-    ${status}=  Run  ruby app/cli create ${username} ${password}
+    ${status}=  Run  ruby app/cli.rb create ${username} ${password}
     Set Test Variable   ${status}
 
 Status Should Be ${expected_status}
