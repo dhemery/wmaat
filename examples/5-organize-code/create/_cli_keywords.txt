@@ -6,3 +6,9 @@ Create Account ${username} ${password}
 
 Status Should Be ${expected_status}
     Should Be Equal  ${status}  ${expected_status}
+
+
+
+
+** Settings **
+Library     OperatingSystem

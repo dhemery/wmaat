@@ -1,0 +1,23 @@
+*** Settings ***
+Library         SeleniumLibrary
+
+*** Keywords ***
+
+Create Account ${username} ${password}
+    Go To   http://localhost:4567/create
+    Input Text  username    ${username}
+    Input Text  password    ${password}
+    Submit Form
+
+Status Should Be ${expected_status}
+    Element Should Contain  status  ${expected_status}
+
+Start Selenium Session
+    Start Selenium Server
+    Open Browser  http://localhost:4567
+    Set Selenium Speed  1
+    Maximize Browser Window
+
+End Selenium Session
+    Close Browser
+    Stop Selenium Server
