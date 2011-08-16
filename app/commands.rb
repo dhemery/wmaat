@@ -7,6 +7,8 @@ class Commands
     include Messages
 
     def initialize(account_file_path)
+        account_dir = File.dirname(account_file_path)
+        Dir.mkdir account_dir unless Dir.exists? account_dir
         @account_file = AccountFile.new account_file_path
         @accounts = @account_file.load
     end
