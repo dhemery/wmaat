@@ -45,7 +45,7 @@ describe "A", Password do
             password = Password.new 'abcd1234'
             password.valid?.should == false
         end
-    
+
         it "is valid if it contains letters, digits, and punctuation" do
             password = Password.new 'aValidP@ssw0rd'
             password.valid?.should == true

@@ -1,7 +1,7 @@
 class Password
     MINIMUM_PASSWORD_LENGTH = 6
     MAXIMUM_PASSWORD_LENGTH = 16
-    
+
     def initialize(password)
         @password = password
     end
@@ -13,7 +13,7 @@ class Password
     def contains_digit?
         matches? /[[:digit:]]/
     end
-    
+
     def contains_letter?
         matches? /[[:alpha:]]/
     end
@@ -25,7 +25,7 @@ class Password
     def matches? pattern
         !(@password =~ pattern).nil?
     end
-    
+
     def too_long?
         @password.length > MAXIMUM_PASSWORD_LENGTH
     end
