@@ -10,9 +10,8 @@ class Account
     def logged_in?
         return @status == :online
     end
-    
+
     def match? user_name, password
         return @user_name == user_name && @password == password
     end
 end
- 
